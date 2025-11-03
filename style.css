@@ -204,6 +204,11 @@ footer {
 .prev { left: 20px; }
 .next { right: 20px; }
 
+.icono-svg {
+  width: 44px !important;
+  height: auto !important;
+}
+}
 
 
 /* RESPONSIVE */
