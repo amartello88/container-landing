@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>El Container</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/2eca0425c3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <header class="nav-bar">
+    <div class="container nav-container">
+            <h1 class="logo">
+            El Container <i class="fa-solid fa-tree"></i>
+            </h1>
+
+      <button class="menu-toggle" aria-label="Abrir menú">&#9776;</button>
+      <nav class="nav-menu">
+        <a href="#acerca">Acerca de</a>
+        <a href="#galeria">Galería</a>
+        <a href="#comodidades">Comodidades</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="acerca" class="section light-bg">
+    <div class="container">
+      <h2><strong>Bienvenido a tu refugio en la Patagonia Argentina.</strong></h2><br><br>
+      <p>
+        Ubicados a solo <strong>8 km del centro de Villa La Angostura</strong>, te ofrecemos una experiencia única para desconectar y disfrutar de la naturaleza en su máximo esplendor. 
+        Contamos con dos opciones de alojamiento para dos personas: una encantadora <strong>casita</strong> y un moderno <strong>container</strong>, ambas diseñadas para brindarte confort y privacidad en un entorno inigualable. 
+        Además, somos <strong>pet friendly</strong>, por lo que podrás disfrutar de tu estadía acompañado de tu mascota. 
+        Durante la temporada baja, también ofrecemos <strong>alquiler mensual</strong>, ideal para quienes buscan una escapatoria prolongada.<br><br>
+        Vení a vivir la <strong>tranquilidad y belleza de la Patagonia</strong> en un lugar ideal para tu descanso.
+      </p>
+
+    </div>
+  </section>
+
+  <section id="comodidades" class="section">
+    <div class="container comodidades">
+      <div class="columna izquierda">
+        <img src="img/container1.jpg" alt="Comodidades" />
+      </div>
+      <div class="columna derecha">
+        <h2>Comodidades</h2>
+        <ul class="comodidades">
+            <li><i class="fa-solid fa-wifi"></i> Wi-Fi fibra óptica & Starlink</li>
+            <li><i class="fa-solid fa-bed"></i> Capacidad para dos personas (Sommier)</li>
+            <li><i class="fa-solid fa-couch"></i> Futón</li>
+            <li><i class="fa-solid fa-fire"></i> Calefacción a gas</li>
+            <li><i class="fa-solid fa-tv"></i> TV LED 32" (Netflix, Spotify Premium)</li>
+            <li><i class="fa-solid fa-microphone-lines"></i> Microondas</li>
+            <li><i class="fa-solid fa-burn"></i> Cocina / Anafe</li>
+            <li><i class="fa-solid fa-snowflake"></i> Heladera con freezer</li>
+            <li><i class="fa-solid fa-utensils"></i> Vajilla completa</li>
+            <li><i class="fa-solid fa-bed"></i> Ropa de cama y baño</li>
+            <li><i class="fa-solid fa-bread-slice"></i> Tostadora</li>
+            <li><i class="fa-solid fa-mug-saucer"></i> Pava eléctrica</li>
+            <li><i class="fa-solid fa-coffee"></i> Cafetera de filtro</li>
+            <li><i class="fa-solid fa-shirt"></i> Tender seca ropa</li>
+            <li><i class="fa-solid fa-drumstick-bite"></i> Parrilla de piso</li>
+            <li><i class="fa-solid fa-chair"></i> Mesas y sillas de jardín</li>
+        </ul>
+
+      </div>
+    </div>
+  </section>
+  <section id="galeria" class="section light-bg">
+    <div class="container">
+      <h2>Galería</h2>
+      <div class="gallery">
+        <img src="/img/img-1.jpeg" alt="Foto 1" class="gallery-item" />
+        <img src="/img/img-2.jpg" alt="Foto 2" class="gallery-item" />
+        <img src="img/img-3.jpg" alt="Foto 3" class="gallery-item" />
+        <img src="/img/img-4.jpg" alt="Foto 4" class="gallery-item" />
+        <img src="/img/img-5.png" alt="Foto 5" class="gallery-item" />
+        <img src="/img/img-6.png" alt="Foto 6" class="gallery-item" />
+        <img src="/img/img-7.jpeg" alt="Foto 7" class="gallery-item" />
+        <img src="/img/img-8.jpg" alt="Foto 8" class="gallery-item" />
+      </div>
+    </div>
+  </section>
+  <footer id="contacto">
+  <div class="footer-container">
+    <p>&copy; 2025 Luna M <i class="fa-regular fa-heart"></i> - Todos los derechos reservados.</p>
+    <div class="social-icons">
+      <a href="https://instagram.com/lacasita.ar" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://wa.link/8280dq" target="_blank" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      <a href="mailto:acasitavlapatagonia@gmail.com" aria-label="Correo electrónico">
+        <i class="fas fa-envelope"></i>
+      </a>
+        <a href="https://maps.app.goo.gl/fLHY9ytwyZYeVrkK6" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        aria-label="Ver ubicación en Google Maps">
+        <i class="fa-solid fa-map-pin"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+
+
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img" src="">
+    <div class="lightbox-nav">
+      <span class="prev">&#10094;</span>
+      <span class="next">&#10095;</span>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

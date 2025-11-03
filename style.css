@@ -1,0 +1,268 @@
+:root {
+  --primary-color: #333;
+  --accent-color: #cad2c5;
+  --hover-color: #52796f;
+  --light-bg: #f8f8f8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  
+}
+h2 {
+  margin-bottom: 30px;
+}
+body {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: var(--primary-color);
+  line-height: 1.6;
+}
+
+/* NAVBAR */
+.nav-bar {
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.nav-menu a:hover {
+  color: var(--hover-color);
+}
+
+/* MENU TOGGLE */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* SECCIONES */
+.section {
+  padding: 60px 20px;
+}
+#acerca  {
+  text-align: center;
+}
+section {
+  scroll-margin-top: 80px; 
+}
+
+.light-bg {
+  background-color: var(--light-bg);
+}
+
+/* Centra solo el título h2 dentro de la sección comodidades */
+#comodidades h2 {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* GALERÍA */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columnas iguales */
+  gap: 15px; /* espacio entre imágenes */
+}
+
+.gallery-item {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.03);
+}
+
+/* COMODIDADES */
+.comodidades {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: center;
+}
+
+.comodidades .columna {
+  flex: 1;
+}
+
+.comodidades img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+
+/* FOOTER */
+footer {
+  background-color: #ddd;
+  padding: 20px 0;
+  border-top: 1px solid #ddd;
+}
+
+.footer-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between; /* separa texto e íconos */
+  align-items: center;
+  flex-wrap: wrap; /* para que se acomode en mobile */
+  gap: 10px;
+  padding: 0 20px;
+}
+
+.footer-container p {
+  color: var(--primary-color);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.footer-container i.fa-heart {
+  color: #ffc5d3; /* colorcito del corazón */
+  margin: 0 5px;
+}
+
+.social-icons a {
+  color: var(--primary-color);
+  font-size: 1.3rem;
+  margin-left: 15px;
+  transition: color 0.3s, transform 0.2s;
+}
+
+.social-icons a:hover {
+  color: var(--hover-color);
+  transform: scale(1.2);
+}
+
+/* LIGHTBOX JS*/
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  padding-top: 50px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.9);
+}
+
+.lightbox-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 80%;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+}
+
+.lightbox-nav .prev, .lightbox-nav .next {
+  position: absolute;
+  top: 50%;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+  user-select: none;
+  padding: 10px;
+  transform: translateY(-50%);
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    background-color: #fff;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 20px;
+  }
+  .nav-menu.active {
+    display: flex;
+  }
+  .comodidades {
+    flex-direction: column; /* pasa de horizontal a vertical */
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .columna.derecha {
+    width: 100%;
+    margin-top: 20px; /* separa la lista de la imagen */
+    margin-left: 30px;
+  }
+
+  .columna.derecha ul {
+    text-align: left; /* mantiene los íconos y texto alineados */
+    display: inline-block; /* centra la lista en la columna */
+  }
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .social-icons {
+    margin-top: 10px;
+  }
+
+  .social-icons a {
+    margin: 0 10px;
+  }
+}
+
+
+
+/* Responsive: 2 columnas en tablets */
+@media (max-width: 992px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
