@@ -34,12 +34,13 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 20px;
+  padding: 30px 20px;
 }
 
 .nav-menu {
   display: flex;
   gap: 20px;
+  padding: 40px 20px;
 }
 
 .nav-menu a {
@@ -206,15 +207,21 @@ footer {
 
 
 
-/* RESPONSIVE */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
     color: var(--primary-color) !important; 
+    font-size: 28px;          /* asegurate de que no sea muy grande */
+    line-height: 1;           /* evita que se corte */
+    padding: 10px;            /* da aire alrededor */
+    position: relative;       
+    z-index: 1100;            /* queda por encima del menú */
   }
+
   .gallery {
     grid-template-columns: 1fr;
   }
+
   .nav-menu {
     display: none;
     flex-direction: column;
@@ -223,11 +230,17 @@ footer {
     position: absolute;
     top: 60px;
     left: 0;
-    padding: 20px;
+    padding: 40px 20px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.07); /* sombra solo hacia abajo */
+    border-top: none;          /* asegura que no haya línea arriba */
+    z-index: 1000;             /* debajo del botón hamburguesa */
   }
+
   .nav-menu.active {
     display: flex;
   }
+}
+
   .comodidades {
     flex-direction: column; /* pasa de horizontal a vertical */
     align-items: flex-start;
@@ -244,6 +257,9 @@ footer {
     text-align: left; /* mantiene los íconos y texto alineados */
     display: inline-block; /* centra la lista en la columna */
   }
+  
+
+  /* footer mobile */
   .footer-container {
     flex-direction: column;
     text-align: center;

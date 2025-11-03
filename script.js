@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Toggle del menú
   menuToggle.addEventListener("click", () => {
     navMenu.classList.toggle("active");
+    document.querySelector(".logo").classList.toggle("hide");
   });
 
   // 🔹 Cierra el menú al hacer clic en cualquier link del nav
