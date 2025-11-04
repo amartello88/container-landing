@@ -298,6 +298,26 @@ footer {
     display: inline-block; /* centra la lista en la columna */
   }
 
+/* CONTENEDOR DE LA IMAGEN container*/
+.columna.izquierda {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden; /* evita que se salga */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* IMAGEN DE COMODIDADES */
+.columna.izquierda img {
+  width: 100%;
+  height: auto;
+  max-width: 600px; /* opcional, podés ajustar */
+  object-fit: contain; /* muestra toda la foto */
+  display: block;
+  border-radius: 10px;
+}
+
   /* footer mobile */
   .footer-container {
     flex-direction: column;
