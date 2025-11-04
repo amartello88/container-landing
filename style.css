@@ -146,7 +146,7 @@ footer {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 8px;
 }
 
 
@@ -163,7 +163,7 @@ footer {
 
 .social-icons a {
   color: var(--primary-color);
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   margin-left: 15px;
   transition: color 0.3s, transform 0.2s;
 }
