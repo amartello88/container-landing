@@ -41,6 +41,8 @@ body {
   display: flex;
   gap: 20px;
   padding: 40px 20px;
+  background-color: #fffffc;
+  z-index: 1000;
 }
 
 .nav-menu a {
@@ -52,7 +54,10 @@ body {
 .nav-menu a:hover {
   color: var(--hover-color);
 }
-
+.logo {
+  position: relative;
+  z-index: 1100;
+}
 /* MENU TOGGLE */
 .menu-toggle {
   display: none;
@@ -60,6 +65,7 @@ body {
   border: none;
   font-size: 28px;
   cursor: pointer;
+  z-index: 1101;
 }
 
 /* SECCIONES */
@@ -383,6 +389,29 @@ html, body {
   .lightbox-inner img {
     max-width: 95vw; /* un poquito más de ancho en mobile */
     max-height: 75vh;
+  }
+}
+
+  @media (max-width: 768px) {
+  .container.comodidades {
+    flex-direction: column;
+    text-align: center;
+    padding: 0 10px; /* menos padding lateral */
+  }
+
+  .columna {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .columna.derecha {
+    margin-top: 20px; /* separa el texto de la imagen */
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-bar {
+    box-shadow: none;
   }
 }
 
