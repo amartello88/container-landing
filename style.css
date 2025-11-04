@@ -58,6 +58,8 @@ body {
   position: relative;
   z-index: 1100;
 }
+.nav-bar, .nav-menu { box-shadow: none; background-color: #fffffc; }
+
 /* MENU TOGGLE */
 .menu-toggle {
   display: none;
@@ -132,7 +134,7 @@ section {
 footer {
   background-color: #fffffc;
   border-top: 1px solid #ddd;
-  padding: 20px 0;
+  padding: 10px 0;
   display: flex;
   align-items: center;    /* centra verticalmente */
   justify-content: center; /* centra horizontalmente */
@@ -409,9 +411,4 @@ html, body {
   }
 }
 
-@media (max-width: 768px) {
-  .nav-bar {
-    box-shadow: none;
-  }
-}
 
