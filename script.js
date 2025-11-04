@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   images.forEach((img, index) => {
     img.addEventListener("click", () => {
-      lightbox.style.display = "block";
+      lightbox.style.display = "flex";
       lightboxImg.src = img.src;
       currentIndex = index;
     });

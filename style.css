@@ -23,7 +23,7 @@ body {
 
 /* NAVBAR */
 .nav-bar {
-  background-color: #fff;
+  background-color: #fffffc;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   position: sticky;
   top: 0;
@@ -122,22 +122,25 @@ section {
 
 
 /* FOOTER */
+
 footer {
-  background-color: #ddd;
-  padding: 20px 0;
+  background-color: #fffffc;
   border-top: 1px solid #ddd;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;    /* centra verticalmente */
+  justify-content: center; /* centra horizontalmente */
 }
 
+
 .footer-container {
-  max-width: 1100px;
-  margin: 0 auto;
   display: flex;
-  justify-content: space-between; /* separa texto e íconos */
+  justify-content: center;
   align-items: center;
-  flex-wrap: wrap; /* para que se acomode en mobile */
-  gap: 10px;
-  padding: 0 20px;
+  flex-wrap: wrap;
+  gap: 15px;
 }
+
 
 .footer-container p {
   color: var(--primary-color);
@@ -161,51 +164,92 @@ footer {
   color: var(--hover-color);
   transform: scale(1.2);
 }
-
-/* LIGHTBOX JS*/
+/* LIGHTBOX GENERAL */
+/* ===== LIGHTBOX GENERAL ===== */
 .lightbox {
-  display: none;
   position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
   z-index: 2000;
-  padding-top: 50px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.9);
+
+  display: flex;
+  justify-content: center;
+  align-items: center; /* <-- centra verticalmente todo */
+  display: none; /* se muestra con JS */
 }
 
-.lightbox-content {
-  margin: auto;
+/* ===== CONTENEDOR INTERNO ===== */
+.lightbox-inner {
+  position: relative;
+  display: flex;
+  align-items: center; /* centra las flechas respecto a la imagen */
+  justify-content: center;
+  max-width: 90vw;
+  max-height: 85vh;
+  overflow: visible;
+}
+
+/* ===== IMAGEN ===== */
+.lightbox-inner img {
   display: block;
-  max-width: 90%;
-  max-height: 80%;
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
+/* ===== FLECHAS ===== */
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 45px;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.2s, color 0.2s;
+  z-index: 10;
+}
+
+.prev:hover,
+.next:hover {
+  transform: translateY(-50%) scale(1.15);
+  color: #ccc;
+}
+
+.prev {
+  left: -60px;
+}
+
+.next {
+  right: -60px;
+}
+
+/* ===== BOTÓN CERRAR ===== */
 .close {
   position: absolute;
-  top: 15px;
-  right: 25px;
+  top: -50px;
+  right: 0;
   color: white;
   font-size: 35px;
   cursor: pointer;
+  z-index: 20;
+  transition: color 0.2s;
 }
 
-.lightbox-nav .prev, .lightbox-nav .next {
-  position: absolute;
-  top: 50%;
-  color: white;
-  font-size: 40px;
-  cursor: pointer;
-  user-select: none;
-  padding: 10px;
-  transform: translateY(-50%);
+.close:hover {
+  color: #aaa;
 }
 
-.prev { left: 20px; }
-.next { right: 20px; }
-
-
+/* Responsive */
+@media (max-width: 768px) {
+  .prev { left: -35px; }
+  .next { right: -35px; }
+  .close { top: -40px; right: -10px; }
+}
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
@@ -264,12 +308,50 @@ footer {
   }
 }
 
+/* problemita fontawesome iconos con underscore */
+.footer-container a {
+  text-decoration: none !important; /* elimina subrayado */
+}
 
+.footer-container a:visited,
+.footer-container a:active,
+.footer-container a:focus {
+  text-decoration: none !important;
+}
+
+.footer-container a:hover {
+  text-decoration: none !important;
+}
+/* hasta aca */
 
 /* Responsive: 2 columnas en tablets */
 @media (max-width: 992px) {
   .gallery {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ===== RESPONSIVE lightbox ===== */
+@media (max-width: 768px) {
+  .prev {
+    left: 0px; /* antes -35px */
+    font-size: 35px; /* más chicas para mobile */
+  }
+
+  .next {
+    right: 0px;
+    font-size: 35px;
+  }
+
+  .close {
+    top: -45px;
+    right: -5px;
+    font-size: 30px;
+  }
+
+  .lightbox-inner img {
+    max-width: 95vw; /* un poquito más de ancho en mobile */
+    max-height: 75vh;
   }
 }
 
