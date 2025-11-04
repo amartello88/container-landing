@@ -243,6 +243,11 @@ footer {
 .close:hover {
   color: #aaa;
 }
+.lightbox {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -306,6 +311,12 @@ footer {
   .social-icons a {
     margin: 0 10px;
   }
+}
+/* Elimina cualquier desplazamiento horizontal problema overflow */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
 }
 
 /* problemita fontawesome iconos con underscore */
