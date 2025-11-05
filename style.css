@@ -10,6 +10,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  scroll-behavior: smooth;
   
 }
 h2 {
@@ -79,6 +80,16 @@ body {
 #acerca  {
   text-align: center;
 }
+#acerca h2 {
+  padding-top: 40px; /
+}
+.logo a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+
 section {
   scroll-margin-top: 80px; 
 }
