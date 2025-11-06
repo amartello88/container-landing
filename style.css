@@ -98,12 +98,6 @@ section {
   background-color: var(--light-bg);
 }
 
-/* Centra solo el título h2 dentro de la sección comodidades */
-#comodidades h2 {
-  text-align: center;
-  width: 100%;
-  margin-bottom: 20px;
-}
 
 /* GALERÍA */
 .gallery {
@@ -124,21 +118,47 @@ section {
   transform: scale(1.03);
 }
 
-/* COMODIDADES */
-.comodidades {
+/* --- COMODIDADES --- */
+.contenedor-comodidades {
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
-  align-items: center;
+  align-items: flex-start;
 }
 
-.comodidades .columna {
+.contenedor-comodidades .columna {
   flex: 1;
 }
 
-.comodidades img {
+.contenedor-comodidades img {
   width: 100%;
   border-radius: 10px;
+}
+
+/* Centrado y estilo del título */
+#comodidades h2 {
+  text-align: left;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 5px;
+}
+
+/* Lista de ítems */
+.lista-comodidades {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lista-comodidades li {
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.lista-comodidades i {
+  color: var(--accent-color);
+  margin-right: 8px;
 }
 
 
@@ -302,42 +322,7 @@ footer {
   .nav-menu.active {
     display: flex;
   }
-  .comodidades {
-    flex-direction: column; /* pasa de horizontal a vertical */
-    align-items: flex-start;
-    gap: 20px;
-  }
 
-  .columna.derecha {
-    width: 100%;
-    margin-top: 20px; /* separa la lista de la imagen */
-    margin-left: 30px;
-  }
-
-  .columna.derecha ul {
-    text-align: left; /* mantiene los íconos y texto alineados */
-    display: inline-block; /* centra la lista en la columna */
-  }
-
-/* CONTENEDOR DE LA IMAGEN container*/
-.columna.izquierda {
-  width: 100%;
-  max-width: 100%;
-  overflow: hidden; /* evita que se salga */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* IMAGEN DE COMODIDADES */
-.columna.izquierda img {
-  width: 100%;
-  height: auto;
-  max-width: 600px; /* opcional, podés ajustar */
-  object-fit: contain; /* muestra toda la foto */
-  display: block;
-  border-radius: 10px;
-}
 
   /* footer mobile */
   .footer-container {
@@ -406,12 +391,13 @@ html, body {
     max-height: 75vh;
   }
 }
-
-  @media (max-width: 768px) {
-  .container.comodidades {
-    flex-direction: column;
-    text-align: center;
-    padding: 0 10px; /* menos padding lateral */
+/* section comodidades responsive */
+@media (max-width: 768px) {
+  .contenedor-comodidades {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    padding: 0 15px;
   }
 
   .columna {
@@ -419,9 +405,41 @@ html, body {
     max-width: 100%;
   }
 
+  .columna.izquierda {
+    margin-bottom: 20px;
+  }
+
+  .columna.izquierda img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
   .columna.derecha {
-    margin-top: 20px; /* separa el texto de la imagen */
+    margin-top: 0;
+    margin-left: 0;
+    width: 100%;
+    text-align: left;
+  }
+
+  .lista-comodidades {
+    text-align: left;
+    padding-left: 0;
+    width: 100%;
+  }
+
+  .lista-comodidades li {
+    text-align: left;
+    margin: 25px 0 0 0;
+  }
+
+  #comodidades h2 {
+    text-align: center;
+    border-bottom: 2px solid var(--accent-color);
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+    padding-bottom: 1px;
   }
 }
-
 
