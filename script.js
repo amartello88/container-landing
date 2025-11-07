@@ -26,17 +26,23 @@ document.addEventListener("DOMContentLoaded", () => {
   const images = document.querySelectorAll(".gallery-item");
   let currentIndex = 0;
 
+  // 🔹 Abre el lightbox y bloquea el scroll
   images.forEach((img, index) => {
     img.addEventListener("click", () => {
       lightbox.style.display = "flex";
       lightboxImg.src = img.src;
       currentIndex = index;
+      document.body.style.overflow = "hidden"; // 🚫 bloquea scroll
     });
   });
 
-  closeBtn.addEventListener("click", () => {
+  // 🔹 Cierra el lightbox y habilita el scroll
+  const cerrarLightbox = () => {
     lightbox.style.display = "none";
-  });
+    document.body.style.overflow = ""; // ✅ restaura scroll
+  };
+
+  closeBtn.addEventListener("click", cerrarLightbox);
 
   nextBtn.addEventListener("click", () => {
     currentIndex = (currentIndex + 1) % images.length;
@@ -48,8 +54,8 @@ document.addEventListener("DOMContentLoaded", () => {
     lightboxImg.src = images[currentIndex].src;
   });
 
-  // Cierra el lightbox haciendo clic fuera de la imagen
+  // 🔹 Cierra el lightbox haciendo clic fuera de la imagen
   lightbox.addEventListener("click", (e) => {
-    if (e.target === lightbox) lightbox.style.display = "none";
+    if (e.target === lightbox) cerrarLightbox();
   });
 });
