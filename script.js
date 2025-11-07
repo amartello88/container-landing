@@ -47,4 +47,23 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.style.position = "";
     document.body.style.top = "";
     document.body.style.width = "";
-    window.scrollTo(0, scrollY); // vuelve al pun
+    window.scrollTo(0, scrollY); // vuelve al punto donde estaba
+  };
+
+  closeBtn.addEventListener("click", cerrarLightbox);
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % images.length;
+    lightboxImg.src = images[currentIndex].src;
+  });
+
+  prevBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    lightboxImg.src = images[currentIndex].src;
+  });
+
+  // 🔹 Cierra el lightbox haciendo clic fuera de la imagen
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) cerrarLightbox();
+  });
+});
