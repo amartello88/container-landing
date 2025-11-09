@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuToggle = document.querySelector(".menu-toggle");
   const navMenu = document.querySelector(".nav-menu");
 
-  // Toggle del menú
+  // 🔹 Toggle del menú
   menuToggle.addEventListener("click", () => {
     navMenu.classList.toggle("active");
     document.querySelector(".logo").classList.toggle("hide");
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // LIGHTBOX
+  // 🔹 LIGHTBOX
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightbox-img");
   const closeBtn = document.querySelector(".close");
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentIndex = 0;
   let scrollY = 0; // guardamos la posición actual del scroll
 
-  // 🔹 Abre el lightbox y bloquea scroll (móvil + desktop)
+  // 🔹 Abre el lightbox y bloquea scroll
   images.forEach((img, index) => {
     img.addEventListener("click", () => {
       lightbox.style.display = "flex";
@@ -41,29 +41,73 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 🔹 Función para cerrar lightbox y restaurar scroll
+  // 🔹 Cierra el lightbox y restaura scroll
   const cerrarLightbox = () => {
     lightbox.style.display = "none";
     document.body.style.position = "";
     document.body.style.top = "";
     document.body.style.width = "";
-    window.scrollTo(0, scrollY); // vuelve al punto donde estaba
+    window.scrollTo(0, scrollY);
   };
 
   closeBtn.addEventListener("click", cerrarLightbox);
 
   nextBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % images.length;
-    lightboxImg.src = images[currentIndex].src;
+    lightboxImg.classList.add("fade-out");
+    setTimeout(() => {
+      currentIndex = (currentIndex + 1) % images.length;
+      lightboxImg.src = images[currentIndex].src;
+      lightboxImg.classList.remove("fade-out");
+    }, 200);
   });
 
   prevBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    lightboxImg.src = images[currentIndex].src;
+    lightboxImg.classList.add("fade-out");
+    setTimeout(() => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      lightboxImg.src = images[currentIndex].src;
+      lightboxImg.classList.remove("fade-out");
+    }, 200);
   });
 
   // 🔹 Cierra el lightbox haciendo clic fuera de la imagen
   lightbox.addEventListener("click", (e) => {
     if (e.target === lightbox) cerrarLightbox();
+  });
+
+  // 🔹 Swipe táctil con fade (para móviles)
+  let startX = 0;
+  let endX = 0;
+
+  lightboxImg.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  lightboxImg.addEventListener("touchmove", (e) => {
+    endX = e.touches[0].clientX;
+  });
+
+  lightboxImg.addEventListener("touchend", () => {
+    const swipeDistance = endX - startX;
+
+    if (Math.abs(swipeDistance) > 50) {
+      lightboxImg.classList.add("fade-out");
+
+      setTimeout(() => {
+        if (swipeDistance < 0) {
+          // Izquierda → siguiente
+          currentIndex = (currentIndex + 1) % images.length;
+        } else {
+          // Derecha → anterior
+          currentIndex = (currentIndex - 1 + images.length) % images.length;
+        }
+
+        lightboxImg.src = images[currentIndex].src;
+        lightboxImg.classList.remove("fade-out");
+      }, 200);
+    }
+
+    startX = 0;
+    endX = 0;
   });
 });
