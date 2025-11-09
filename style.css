@@ -97,6 +97,30 @@ section {
 .light-bg {
   background-color: var(--light-bg);
 }
+/* fondo section Acerca */
+#acerca {
+  background-image: url('img/Container-bg.JPG'); 
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: relative;
+  color: #fff; 
+}
+
+/* Overlay semitransparente */
+#acerca::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.45); /* ajustá opacidad */
+  z-index: 0;
+}
+
+/* Asegurá que el contenido quede encima */
+#acerca .container {
+  position: relative;
+  z-index: 1;
+}
 
 
 /* GALERÍA */
@@ -361,6 +385,20 @@ html, body {
 }
 /* hasta aca */
 
+
+/* Section acerca mobile */
+@media (min-width: 769px) {
+  #acerca {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+  }
+
+  #acerca .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+}
 /* Responsive: 2 columnas en tablets */
 @media (max-width: 992px) {
   .gallery {
