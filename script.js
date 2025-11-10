@@ -111,3 +111,8 @@ document.addEventListener("DOMContentLoaded", () => {
     endX = 0;
   });
 });
+document.querySelectorAll('.gallery-item').forEach(img => {
+  img.addEventListener('load', () => {
+    img.classList.add('loaded');
+  });
+});

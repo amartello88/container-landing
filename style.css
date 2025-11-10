@@ -149,7 +149,10 @@ section {
   opacity: 1;
   transform: scale(1);
 }
-
+/* Hover → leve zoom */
+.gallery-item.loaded:hover {
+  transform: scale(1.04);
+}
 /* --- COMODIDADES --- */
 .contenedor-comodidades {
   display: flex;
