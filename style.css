@@ -117,7 +117,6 @@ section {
   color: #fff;
 }
 
-/* Overlay oscuro */
 #acerca::before {
   content: "";
   position: absolute;
@@ -126,7 +125,6 @@ section {
   z-index: 0;
 }
 
-/* Contenido encima del overlay */
 #acerca .container {
   position: relative;
   z-index: 1;
@@ -178,6 +176,10 @@ section {
 .contenedor-comodidades img {
   width: 100%;
   border-radius: 10px;
+}
+
+#comodidades {
+  scroll-margin-top: 250px; /* Evita que el título quede oculto por el nav */
 }
 
 #comodidades h2 {
@@ -332,20 +334,20 @@ footer {
 }
 
 /* ======================================= */
-/* 🔸 RESPONSIVE (TABLET Y MOBILE) */
+/* 🔸 RESPONSIVE */
 /* ======================================= */
 
-/* Tablet: 2 columnas en galería */
+/* --- Tablet: 2 columnas en galería --- */
 @media (max-width: 992px) {
   .gallery {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* Mobile general */
+/* --- Mobile general --- */
 @media (max-width: 768px) {
 
-  /* --- MENÚ --- */
+  /* Menú */
   .menu-toggle {
     display: block;
     color: var(--primary-color) !important; 
@@ -367,12 +369,12 @@ footer {
     display: flex;
   }
 
-  /* --- GALERÍA --- */
+  /* Galería */
   .gallery {
     grid-template-columns: 1fr;
   }
 
-  /* --- FOOTER --- */
+  /* Footer */
   .footer-container {
     flex-direction: column;
     text-align: center;
@@ -386,7 +388,7 @@ footer {
     margin: 0 10px;
   }
 
-  /* --- LIGHTBOX --- */
+  /* Lightbox */
   #lightbox-img {
     max-width: 95vw;
     max-height: 80vh;
@@ -425,7 +427,7 @@ footer {
     max-height: 75vh;
   }
 
-  /* --- COMODIDADES --- */
+  /* Comodidades */
   .contenedor-comodidades {
     flex-direction: column !important;
     align-items: flex-start !important;
@@ -476,213 +478,7 @@ footer {
   }
 }
 
-/* ======================================= */
-/* 🔸 DESKTOP */
-/* ======================================= */
-@media (min-width: 769px) {
-  #acerca {
-    min-height: 90vh;
-    display: flex;
-    align-items: center;
-    background-position: top center;
-  }
-
-  #acerca .container {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-}
-
-/* ============================= */
-/* 🔸 ANIMACIONES GENERALES */
-/* ============================= */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-/* ============================= */
-/* 🔸 AJUSTES GLOBALES */
-/* ============================= */
-html, body {
-  overflow-x: hidden;
-  width: 100%;
-  max-width: 100%;
-}
-
-/* 🔹 Enlaces del footer (sin subrayado en íconos FontAwesome) */
-.footer-container a,
-.footer-container a:visited,
-.footer-container a:active,
-.footer-container a:focus,
-.footer-container a:hover {
-  text-decoration: none !important;
-}
-
-/* ============================= */
-/* 🔸 RESPONSIVE GENERAL */
-/* ============================= */
-
-/* 🔹 GALERÍA: 2 columnas en tablets */
-@media (max-width: 992px) {
-  .gallery {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* ========================================================== */
-/* 🔸 RESPONSIVE MOBILE (pantallas hasta 768px) */
-/* ========================================================== */
-@media (max-width: 768px) {
-
-  /* ===================== */
-  /* 🔹 MENÚ DE NAVEGACIÓN */
-  /* ===================== */
-  .menu-toggle {
-    display: block;
-    color: var(--primary-color) !important; 
-  }
-
-  .nav-menu {
-    display: none;
-    flex-direction: column;
-    background-color: #fff;
-    width: 100%;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    padding: 40px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
-  }
-
-  .nav-menu.active {
-    display: flex;
-  }
-
-  /* ===================== */
-  /* 🔹 GALERÍA MOBILE */
-  /* ===================== */
-  .gallery {
-    grid-template-columns: 1fr;
-  }
-
-  /* ===================== */
-  /* 🔹 FOOTER MOBILE */
-  /* ===================== */
-  .footer-container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .social-icons {
-    margin-top: 10px;
-  }
-
-  .social-icons a {
-    margin: 0 10px;
-  }
-
-  /* ===================== */
-  /* 🔹 LIGHTBOX MOBILE */
-  /* ===================== */
-  #lightbox-img {
-    max-width: 95vw;
-    max-height: 80vh;
-  }
-
-  /* Flechas centradas dentro de la imagen */
-  .next,
-  .prev {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 2rem; /* tamaño equilibrado */
-    color: #fff;
-    z-index: 1001;
-    padding: 8px 12px;
-    cursor: pointer;
-    transition: opacity 0.2s;
-  }
-
-  .next {
-    right: 15px;
-    left: auto;
-  }
-
-  .prev {
-    left: 15px;
-    right: auto;
-  }
-
-  /* Botón de cerrar */
-  .close {
-    top: 15px;
-    right: 20px;
-    font-size: 1.8rem;
-  }
-
-  /* Ajuste adicional de imagen dentro del lightbox */
-  .lightbox-inner img {
-    max-width: 95vw;
-    max-height: 75vh;
-  }
-
-  /* ===================== */
-  /* 🔹 COMODIDADES MOBILE */
-  /* ===================== */
-  .contenedor-comodidades {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    text-align: left !important;
-    padding: 0 15px;
-  }
-
-  .columna {
-    flex: 1 1 100%;
-    max-width: 100%;
-  }
-
-  .columna.izquierda {
-    margin-bottom: 20px;
-  }
-
-  .columna.izquierda img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-  }
-
-  .columna.derecha {
-    margin-top: 0;
-    margin-left: 0;
-    width: 100%;
-    text-align: left;
-  }
-
-  .lista-comodidades {
-    text-align: left;
-    padding-left: 0;
-    width: 100%;
-  }
-
-  .lista-comodidades li {
-    text-align: left;
-    margin: 25px 0 0 0;
-  }
-
-  #comodidades h2 {
-    text-align: center;
-    border-bottom: 2px solid var(--accent-color);
-    width: 100%;
-    display: block;
-    margin-bottom: 10px;
-    padding-bottom: 1px;
-  }
-}
-
-/* ========================================================== */
-/* 🔸 RESPONSIVE DESKTOP (pantallas desde 769px en adelante) */
-/* ========================================================== */
+/* --- Desktop --- */
 @media (min-width: 769px) {
   #acerca {
     min-height: 90vh;
