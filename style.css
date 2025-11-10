@@ -135,11 +135,19 @@ section {
   height: 100%;
   object-fit: cover;
   border-radius: 8px;
-  transition: transform 0.3s ease;
+  transition: transform 0.2s ease;
+  opacity: 0;
+  transform: scale(0.97);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .gallery-item:hover {
   transform: scale(1.03);
+}
+/* efecto fade cuando cargan las imágenes */
+.gallery-item.loaded {
+  opacity: 1;
+  transform: scale(1);
 }
 
 /* --- COMODIDADES --- */
@@ -229,7 +237,7 @@ footer {
   color: var(--hover-color);
   transform: scale(1.2);
 }
-/* LIGHTBOX GENERAL */
+
 /* ===== LIGHTBOX GENERAL ===== */
 .lightbox {
   position: fixed;
@@ -312,6 +320,44 @@ footer {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+}
+/* --- LIGHTBOX --- */
+#lightbox {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+}
+
+/* Imagen del lightbox con transición suave */
+#lightbox-img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  transition: opacity 0.4s ease;
+  opacity: 1;
+}
+
+/* Cuando entra en fade-out */
+#lightbox-img.fade-out {
+  opacity: 0;
+}
+
+/* Botones */
+.close, .next, .prev {
+  position: absolute;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
+  transition: opacity 0.2s;
+}
+
+.close:hover, .next:hover, .prev:hover {
+  opacity: 0.7;
 }
 
 /* Responsive */
