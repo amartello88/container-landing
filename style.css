@@ -1,3 +1,6 @@
+/* ======================================= */
+/* 🌿 VARIABLES Y RESET GENERAL */
+/* ======================================= */
 :root {
   --primary-color: #333;
   --accent-color: #cad2c5;
@@ -11,19 +14,27 @@
   box-sizing: border-box;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   scroll-behavior: smooth;
-  
 }
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  color: var(--primary-color);
+  line-height: 1.6;
+}
+
+body {
+  padding-top: 110px;
+}
+
 h2 {
   margin-bottom: 30px;
 }
-body {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  color: var(--primary-color);
-  line-height: 1.6;
-  padding-top: 120px;
-}
 
-/* NAVBAR */
+/* ======================================= */
+/* 🔸 NAVBAR Y MENÚ */
+/* ======================================= */
 .nav-bar {
   background-color: #fffffc;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -57,13 +68,18 @@ body {
 .nav-menu a:hover {
   color: var(--hover-color);
 }
+
 .logo {
   position: relative;
   z-index: 1100;
 }
-.nav-bar, .nav-menu { box-shadow: none; background-color: #fffffc; }
 
-/* MENU TOGGLE */
+.logo a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Botón menú (mobile) */
 .menu-toggle {
   display: none;
   background: none;
@@ -73,61 +89,56 @@ body {
   z-index: 1101;
 }
 
-/* SECCIONES */
+/* ======================================= */
+/* 🔸 SECCIONES GENERALES */
+/* ======================================= */
 .section {
   padding: 60px 20px;
 }
-#acerca  {
-  text-align: center;
-}
-#acerca h2 {
-  padding-top: 40px; /
-}
-.logo a {
-  text-decoration: none;
-  color: inherit;
-}
-
-
 
 section {
-  scroll-margin-top: 80px; 
+  scroll-margin-top: 80px;
 }
 
 .light-bg {
   background-color: var(--light-bg);
 }
-/* fondo section Acerca */
+
+/* ======================================= */
+/* 🔸 SECCIÓN ACERCA */
+/* ======================================= */
 #acerca {
-  background-image: url('img/vla-bg.jpg'); 
+  text-align: center;
+  background-image: url('img/vla-bg.jpg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   position: relative;
-  color: #fff; 
+  color: #fff;
 }
 
-/* Overlay semitransparente */
+/* Overlay oscuro */
 #acerca::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.45); /* ajustá opacidad */
+  background-color: rgba(0, 0, 0, 0.45);
   z-index: 0;
 }
 
-/* Asegurá que el contenido quede encima */
+/* Contenido encima del overlay */
 #acerca .container {
   position: relative;
   z-index: 1;
 }
 
-
-/* GALERÍA */
+/* ======================================= */
+/* 🔸 GALERÍA */
+/* ======================================= */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 columnas iguales */
-  gap: 15px; /* espacio entre imágenes */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
 }
 
 .gallery-item {
@@ -135,25 +146,24 @@ section {
   height: 100%;
   object-fit: cover;
   border-radius: 8px;
-  transition: transform 0.2s ease;
   opacity: 0;
   transform: scale(0.97);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: opacity 0.8s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.gallery-item.loaded {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .gallery-item:hover {
   transform: scale(1.03);
 }
-/* efecto fade cuando cargan las imágenes */
-.gallery-item.loaded {
-  opacity: 1;
-  transform: scale(1);
-}
-/* Hover → leve zoom */
-.gallery-item.loaded:hover {
-  transform: scale(1.04);
-}
-/* --- COMODIDADES --- */
+
+/* ======================================= */
+/* 🔸 COMODIDADES */
+/* ======================================= */
 .contenedor-comodidades {
   display: flex;
   flex-wrap: wrap;
@@ -170,7 +180,6 @@ section {
   border-radius: 10px;
 }
 
-/* Centrado y estilo del título */
 #comodidades h2 {
   text-align: left;
   margin-bottom: 20px;
@@ -179,7 +188,6 @@ section {
   padding-bottom: 5px;
 }
 
-/* Lista de ítems */
 .lista-comodidades {
   list-style: none;
   padding: 0;
@@ -196,18 +204,17 @@ section {
   margin-right: 8px;
 }
 
-
-/* FOOTER */
-
+/* ======================================= */
+/* 🔸 FOOTER */
+/* ======================================= */
 footer {
   background-color: #fffffc;
   border-top: 1px solid #ddd;
   padding: 15px 0;
   display: flex;
-  align-items: center;    /* centra verticalmente */
-  justify-content: center; /* centra horizontalmente */
+  align-items: center;
+  justify-content: center;
 }
-
 
 .footer-container {
   display: flex;
@@ -217,7 +224,6 @@ footer {
   gap: 8px;
 }
 
-
 .footer-container p {
   color: var(--primary-color);
   font-size: 0.95rem;
@@ -225,8 +231,16 @@ footer {
 }
 
 .footer-container i.fa-heart {
-  color: #ffc5d3; /* colorcito del corazón */
+  color: #ffc5d3;
   margin: 0 5px;
+}
+
+.footer-container a,
+.footer-container a:visited,
+.footer-container a:active,
+.footer-container a:focus,
+.footer-container a:hover {
+  text-decoration: none !important;
 }
 
 .social-icons a {
@@ -241,90 +255,9 @@ footer {
   transform: scale(1.2);
 }
 
-/* ===== LIGHTBOX GENERAL ===== */
-.lightbox {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.9);
-  z-index: 2000;
-
-  display: flex;
-  justify-content: center;
-  align-items: center; /* <-- centra verticalmente todo */
-  display: none; /* se muestra con JS */
-}
-
-/* ===== CONTENEDOR INTERNO ===== */
-.lightbox-inner {
-  position: relative;
-  display: flex;
-  align-items: center; /* centra las flechas respecto a la imagen */
-  justify-content: center;
-  max-width: 90vw;
-  max-height: 85vh;
-  overflow: visible;
-}
-
-/* ===== IMAGEN ===== */
-.lightbox-inner img {
-  display: block;
-  max-width: 90vw;
-  max-height: 85vh;
-  object-fit: contain;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-}
-
-/* ===== FLECHAS ===== */
-.prev,
-.next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  color: white;
-  font-size: 45px;
-  font-weight: bold;
-  cursor: pointer;
-  user-select: none;
-  transition: transform 0.2s, color 0.2s;
-  z-index: 10;
-}
-
-.prev:hover,
-.next:hover {
-  transform: translateY(-50%) scale(1.15);
-  color: #ccc;
-}
-
-.prev {
-  left: -60px;
-}
-
-.next {
-  right: -60px;
-}
-
-/* ===== BOTÓN CERRAR ===== */
-.close {
-  position: absolute;
-  top: -50px;
-  right: 0;
-  color: white;
-  font-size: 35px;
-  cursor: pointer;
-  z-index: 20;
-  transition: color 0.2s;
-}
-
-.close:hover {
-  color: #aaa;
-}
-.lightbox {
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-}
-/* --- LIGHTBOX --- */
+/* ======================================= */
+/* 🔸 LIGHTBOX */
+/* ======================================= */
 #lightbox {
   display: none;
   justify-content: center;
@@ -333,52 +266,91 @@ footer {
   inset: 0;
   background-color: rgba(0, 0, 0, 0.9);
   z-index: 1000;
+  padding: 30px;
+  animation: fadeIn 0.3s ease;
 }
 
-/* Imagen del lightbox con transición suave */
 #lightbox-img {
-  max-width: 90%;
-  max-height: 90%;
+  max-width: 80vw;
+  max-height: 85vh;
+  object-fit: contain;
   border-radius: 10px;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.4s ease, transform 0.4s ease;
   opacity: 1;
+  transform: scale(1);
 }
 
-/* Cuando entra en fade-out */
 #lightbox-img.fade-out {
   opacity: 0;
+  transform: scale(0.97);
 }
 
-/* Botones */
-.close, .next, .prev {
+.close,
+.next,
+.prev {
   position: absolute;
-  color: white;
+  color: #fff;
   font-size: 2rem;
   cursor: pointer;
   user-select: none;
   transition: opacity 0.2s;
+  z-index: 1001;
 }
 
-.close:hover, .next:hover, .prev:hover {
+.close:hover,
+.next:hover,
+.prev:hover {
   opacity: 0.7;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .prev { left: -35px; }
-  .next { right: -35px; }
-  .close { top: -40px; right: -10px; }
+.close {
+  top: 20px;
+  right: 30px;
 }
 
-/* RESPONSIVE */
+/* Flechas centradas */
+.next,
+.prev {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.next {
+  right: 40px;
+}
+
+.prev {
+  left: 40px;
+}
+
+/* ======================================= */
+/* 🔸 ANIMACIONES */
+/* ======================================= */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ======================================= */
+/* 🔸 RESPONSIVE (TABLET Y MOBILE) */
+/* ======================================= */
+
+/* Tablet: 2 columnas en galería */
+@media (max-width: 992px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile general */
 @media (max-width: 768px) {
+
+  /* --- MENÚ --- */
   .menu-toggle {
     display: block;
     color: var(--primary-color) !important; 
   }
-  .gallery {
-    grid-template-columns: 1fr;
-  }
+
   .nav-menu {
     display: none;
     flex-direction: column;
@@ -389,15 +361,18 @@ footer {
     left: 0;
     padding: 40px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
-
-    
   }
+
   .nav-menu.active {
     display: flex;
   }
 
+  /* --- GALERÍA --- */
+  .gallery {
+    grid-template-columns: 1fr;
+  }
 
-  /* footer mobile */
+  /* --- FOOTER --- */
   .footer-container {
     flex-direction: column;
     text-align: center;
@@ -410,77 +385,47 @@ footer {
   .social-icons a {
     margin: 0 10px;
   }
-}
-/* Elimina cualquier desplazamiento horizontal problema overflow */
-html, body {
-  overflow-x: hidden;
-  width: 100%;
-  max-width: 100%;
-}
 
-/* problemita fontawesome iconos con underscore */
-.footer-container a {
-  text-decoration: none !important; /* elimina subrayado */
-}
-
-.footer-container a:visited,
-.footer-container a:active,
-.footer-container a:focus {
-  text-decoration: none !important;
-}
-
-.footer-container a:hover {
-  text-decoration: none !important;
-}
-/* hasta aca */
-
-
-/* Section acerca mobile */
-@media (min-width: 769px) {
-  #acerca {
-    min-height: 90vh;
-    display: flex;
-    align-items: center;
-    background-position: top center;
+  /* --- LIGHTBOX --- */
+  #lightbox-img {
+    max-width: 95vw;
+    max-height: 80vh;
   }
 
-  #acerca .container {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-}
-/* Responsive: 2 columnas en tablets */
-@media (max-width: 992px) {
-  .gallery {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* ===== RESPONSIVE lightbox ===== */
-@media (max-width: 768px) {
+  .next,
   .prev {
-    left: 0px; /* antes -35px */
-    font-size: 35px; /* más chicas para mobile */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: #fff;
+    z-index: 1001;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: opacity 0.2s;
   }
 
   .next {
-    right: 0px;
-    font-size: 35px;
+    right: 15px;
+    left: auto;
+  }
+
+  .prev {
+    left: 15px;
+    right: auto;
   }
 
   .close {
-    top: -45px;
-    right: -5px;
-    font-size: 30px;
+    top: 15px;
+    right: 20px;
+    font-size: 1.8rem;
   }
 
   .lightbox-inner img {
-    max-width: 95vw; /* un poquito más de ancho en mobile */
+    max-width: 95vw;
     max-height: 75vh;
   }
-}
-/* section comodidades responsive */
-@media (max-width: 768px) {
+
+  /* --- COMODIDADES --- */
   .contenedor-comodidades {
     flex-direction: column !important;
     align-items: flex-start !important;
@@ -531,3 +476,223 @@ html, body {
   }
 }
 
+/* ======================================= */
+/* 🔸 DESKTOP */
+/* ======================================= */
+@media (min-width: 769px) {
+  #acerca {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    background-position: top center;
+  }
+
+  #acerca .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+}
+
+/* ============================= */
+/* 🔸 ANIMACIONES GENERALES */
+/* ============================= */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ============================= */
+/* 🔸 AJUSTES GLOBALES */
+/* ============================= */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* 🔹 Enlaces del footer (sin subrayado en íconos FontAwesome) */
+.footer-container a,
+.footer-container a:visited,
+.footer-container a:active,
+.footer-container a:focus,
+.footer-container a:hover {
+  text-decoration: none !important;
+}
+
+/* ============================= */
+/* 🔸 RESPONSIVE GENERAL */
+/* ============================= */
+
+/* 🔹 GALERÍA: 2 columnas en tablets */
+@media (max-width: 992px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ========================================================== */
+/* 🔸 RESPONSIVE MOBILE (pantallas hasta 768px) */
+/* ========================================================== */
+@media (max-width: 768px) {
+
+  /* ===================== */
+  /* 🔹 MENÚ DE NAVEGACIÓN */
+  /* ===================== */
+  .menu-toggle {
+    display: block;
+    color: var(--primary-color) !important; 
+  }
+
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    background-color: #fff;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  /* ===================== */
+  /* 🔹 GALERÍA MOBILE */
+  /* ===================== */
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  /* ===================== */
+  /* 🔹 FOOTER MOBILE */
+  /* ===================== */
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .social-icons {
+    margin-top: 10px;
+  }
+
+  .social-icons a {
+    margin: 0 10px;
+  }
+
+  /* ===================== */
+  /* 🔹 LIGHTBOX MOBILE */
+  /* ===================== */
+  #lightbox-img {
+    max-width: 95vw;
+    max-height: 80vh;
+  }
+
+  /* Flechas centradas dentro de la imagen */
+  .next,
+  .prev {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem; /* tamaño equilibrado */
+    color: #fff;
+    z-index: 1001;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+
+  .next {
+    right: 15px;
+    left: auto;
+  }
+
+  .prev {
+    left: 15px;
+    right: auto;
+  }
+
+  /* Botón de cerrar */
+  .close {
+    top: 15px;
+    right: 20px;
+    font-size: 1.8rem;
+  }
+
+  /* Ajuste adicional de imagen dentro del lightbox */
+  .lightbox-inner img {
+    max-width: 95vw;
+    max-height: 75vh;
+  }
+
+  /* ===================== */
+  /* 🔹 COMODIDADES MOBILE */
+  /* ===================== */
+  .contenedor-comodidades {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    padding: 0 15px;
+  }
+
+  .columna {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .columna.izquierda {
+    margin-bottom: 20px;
+  }
+
+  .columna.izquierda img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .columna.derecha {
+    margin-top: 0;
+    margin-left: 0;
+    width: 100%;
+    text-align: left;
+  }
+
+  .lista-comodidades {
+    text-align: left;
+    padding-left: 0;
+    width: 100%;
+  }
+
+  .lista-comodidades li {
+    text-align: left;
+    margin: 25px 0 0 0;
+  }
+
+  #comodidades h2 {
+    text-align: center;
+    border-bottom: 2px solid var(--accent-color);
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+    padding-bottom: 1px;
+  }
+}
+
+/* ========================================================== */
+/* 🔸 RESPONSIVE DESKTOP (pantallas desde 769px en adelante) */
+/* ========================================================== */
+@media (min-width: 769px) {
+  #acerca {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    background-position: top center;
+  }
+
+  #acerca .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+}
