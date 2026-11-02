@@ -517,3 +517,11 @@ footer {
 .whatsapp-float:hover {
   transform: scale(1.1);
 }
+/* Ocultar enlaces de Airbnb e Instagram */
+.social-icons a[aria-label="Instagram"],
+.social-icons a[aria-label="Airbnb"],
+.social-icons a[href*="instagram.com"],
+.social-icons a[href*="airbnb.com"],
+.social-icons a[href*="airbnb.com.ar"] {
+  display: none !important;
+}
