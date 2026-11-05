@@ -24,9 +24,6 @@ html, body {
   line-height: 1.6;
 }
 
-body {
-  padding-top: 110px;
-}
 
 h2 {
   margin-bottom: 30px;
@@ -88,6 +85,11 @@ h2 {
   cursor: pointer;
   z-index: 1101;
 }
+  /* Header: texto más chico para que entre el pinito */
+  .logo {
+    font-size: 1.4rem;
+    white-space: nowrap;
+  }
 
 /* ======================================= */
 /* 🔸 SECCIONES GENERALES */
@@ -115,6 +117,7 @@ section {
   background-repeat: no-repeat;
   position: relative;
   color: #fff;
+  padding-top: 170px;
 }
 
 #acerca::before {
@@ -129,6 +132,7 @@ section {
   position: relative;
   z-index: 1;
 }
+
 
 /* ======================================= */
 /* 🔸 GALERÍA */
@@ -256,6 +260,24 @@ footer {
   color: var(--hover-color);
   transform: scale(1.2);
 }
+  /* Footer: íconos arriba, dirección en otra línea */
+  .social-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .social-icons .ubicacion-link {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin: 12px 0 0 0;
+  }
+
+
 
 /* ======================================= */
 /* 🔸 LIGHTBOX */
