@@ -33,7 +33,7 @@ h2 {
 /* 🔸 NAVBAR Y MENÚ */
 /* ======================================= */
 .nav-bar {
-  background-color: #fffffc;
+  background-color: var(--light-bg);
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   position: fixed;
   width: 100%;
@@ -51,8 +51,8 @@ h2 {
 .nav-menu {
   display: flex;
   gap: 20px;
-  padding: 40px 20px;
-  background-color: #fffffc;
+  padding: 0;
+  background-color: var(--light-bg);
   z-index: 1000;
 }
 
@@ -378,13 +378,13 @@ footer {
   .nav-menu {
     display: none;
     flex-direction: column;
-    background-color: #fff;
+    background-color: var(--light-bg);
     width: 100%;
     position: absolute;
-    top: 60px;
+    top: 100%;
     left: 0;
     padding: 40px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+    box-shadow: 0 8px 8px -8px rgba(0, 0, 0, 0.15);
   }
 
   .nav-menu.active {

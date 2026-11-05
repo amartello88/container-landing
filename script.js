@@ -111,3 +111,16 @@ document.querySelectorAll('.gallery-item').forEach(img => {
     img.classList.add('loaded');
   });
 });
+// Cerrar el menú al tocar afuera o al elegir una opción
+document.addEventListener('click', (e) => {
+  const menu = document.querySelector('.nav-menu');
+  const toggle = document.querySelector('.menu-toggle');
+  if (!menu.classList.contains('active')) return;
+
+  const tocoLink = e.target.closest('.nav-menu a');
+  const tocoAfuera = !menu.contains(e.target) && !toggle.contains(e.target);
+
+  if (tocoLink || tocoAfuera) {
+    menu.classList.remove('active');
+  }
+});
